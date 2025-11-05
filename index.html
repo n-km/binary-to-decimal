@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Binär → Dezimal (einfach)</title>
+</head>
+<body>
+
+<h2>Binär → Dezimal</h2>
+<p>Trage in jedes Feld 0 oder 1 ein. Dann auf „Berechnen“ klicken.</p>
+
+<table border="1" cellpadding="6">
+  <tr>
+    <th>128</th><th>64</th><th>32</th><th>16</th>
+    <th>8</th><th>4</th><th>2</th><th>1</th>
+  </tr>
+  <tr>
+    <td><input id="b0" size="1" maxlength="1"></td>
+    <td><input id="b1" size="1" maxlength="1"></td>
+    <td><input id="b2" size="1" maxlength="1"></td>
+    <td><input id="b3" size="1" maxlength="1"></td>
+    <td><input id="b4" size="1" maxlength="1"></td>
+    <td><input id="b5" size="1" maxlength="1"></td>
+    <td><input id="b6" size="1" maxlength="1"></td>
+    <td><input id="b7" size="1" maxlength="1"></td>
+  </tr>
+</table>
+<br>
+<button onclick="calc()">Berechnen</button>
+
+<p>Dezimal: <span id="result">-</span></p>
+
+<script>
+function calc(){
+  const weights = [128,64,32,16,8,4,2,1];
+  let sum = 0;
+  for(let i=0;i<8;i++){
+    const val = document.getElementById("b"+i).value;
+    if(val == "1") sum += weights[i];
+  }
+  document.getElementById("result").textContent = sum;
+}
+</script>
+
+</body>
+</html>
